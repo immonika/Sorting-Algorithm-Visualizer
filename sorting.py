@@ -212,3 +212,20 @@ def quick_sort(nums):  # n^2
             _quick_sort(items, split_index + 1, high)
 
     _quick_sort(nums, 0, nums.get_len() - 1)
+
+
+def counting_sort(nums):
+    size = nums.get_len();
+    output = [0] * size
+    count = [0] * 10
+    for i in range(0, size):
+        count[nums[I]] += 1
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+    i = size - 1
+    while i >= 0:
+        output[count[nums[i]] - 1] = nums[i]
+        count[nums[i]] -= 1
+        i -= 1
+    for i in range(0, size):
+        nums[i] = output[i]
